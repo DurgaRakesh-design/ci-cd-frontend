@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function IllustrationSection() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
+    <section className="max-w-6xl mx-auto px-6 py-20 bg-gradient-to-br from-indigo-100 via-purple-100 to-indigo-200 rounded-2xl">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -12,7 +12,7 @@ export default function IllustrationSection() {
         transition={{ duration: 0.6 }}
         className="relative"
       >
-        <div className="grid md:grid-cols-2 gap-12 items-center rounded-2xl border border-purple-100 bg-white p-10 shadow-md shadow-purple-100/40 hover:shadow-purple-200/50 transition-all duration-300 md:p-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center p-10 md:p-16">
 
           {/* LEFT */}
           <div>
@@ -49,7 +49,7 @@ export default function IllustrationSection() {
 
           {/* RIGHT */}
           <div>
-            <div className="rounded-2xl border border-purple-100 bg-white p-6 shadow-md shadow-purple-100/40 hover:shadow-purple-200/50 transition-all duration-300">
+            <div className="bg-white shadow-xl shadow-purple-200/40 rounded-2xl p-6 transition-all duration-300">
               <div className="space-y-5">
                 {[
                   {
@@ -80,7 +80,7 @@ export default function IllustrationSection() {
                   <div key={item.label} className="flex items-center gap-4">
 
                     {/* ICON */}
-                    <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-gray-100/80 flex items-center justify-center">
                       <item.icon className="w-4 h-4 text-gray-600" />
                     </div>
 
@@ -96,7 +96,7 @@ export default function IllustrationSection() {
                       </div>
 
                       {/* PROGRESS */}
-                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="h-2 bg-gray-200/70 rounded-full overflow-hidden">
                         <motion.div
                           className={`h-full ${item.color} rounded-full`}
                           initial={{ width: 0 }}
