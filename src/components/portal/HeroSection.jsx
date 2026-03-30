@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 export default function HeroSection({ onUploadClick, onPipelinesClick }) {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-white/80 via-white/45 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.22),transparent_42%)]" />
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -25,7 +26,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
             {/* Heading */}
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1]">
               Upload. Deploy.{" "}
-              <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-500 to-purple-600 bg-clip-text text-transparent">
                 Track
               </span>{" "}
               —{" "}
