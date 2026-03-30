@@ -171,7 +171,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
         <div className="relative max-w-2xl mx-auto">
 
           {/* CARD */}
-          <div className="bg-white rounded-2xl border border-purple-100 p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50">
+          <div className="bg-white rounded-2xl border border-purple-100 p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-200/50">
 
             {/* DROPZONE */}
             <div

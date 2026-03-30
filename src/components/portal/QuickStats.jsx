@@ -21,6 +21,7 @@ const QuickStats = () => (
             transition={{ delay: i * 0.1, duration: 0.4 }}
             className="rounded-2xl bg-white border border-purple-100 
              shadow-md shadow-purple-100/40
+             hover:-translate-y-1
              hover:shadow-purple-200/50 
              transition-all p-6 flex items-center gap-4"
           >

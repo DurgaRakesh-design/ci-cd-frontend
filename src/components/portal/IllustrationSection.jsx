@@ -52,7 +52,7 @@ export default function IllustrationSection() {
 
           {/* RIGHT CARD */}
           <div>
-            <div className="bg-white shadow-xl shadow-purple-200/40 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.01]">
+            <div className="bg-white shadow-xl shadow-purple-200/40 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01]">
 
               <div className="space-y-5">
                 {[

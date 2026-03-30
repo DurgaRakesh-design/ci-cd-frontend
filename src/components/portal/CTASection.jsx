@@ -13,7 +13,7 @@ export default function CTASection({ onUploadClick }) {
         transition={{ duration: 0.5 }}
         className="relative text-center"
       >
-        <div className="relative rounded-2xl border border-purple-100 bg-white p-12 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50 md:p-16">
+        <div className="relative rounded-2xl border border-purple-100 bg-white p-12 shadow-md shadow-purple-100/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-200/50 md:p-16">
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Start Your Deployment Now

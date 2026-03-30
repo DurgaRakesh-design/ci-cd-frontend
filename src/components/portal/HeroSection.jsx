@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection({ onUploadClick, onPipelinesClick }) {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-l from-indigo-100 via-purple-50 to-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.22),transparent_42%)]" />
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -72,7 +72,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
           >
             <div className="relative">
               {/* Main card */}
-              <div className="relative rounded-2xl border border-purple-100 bg-white p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50">
+              <div className="relative rounded-2xl border border-purple-100 bg-white p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-200/50">
 
                 {/* Pipeline Icons */}
                 <div className="flex items-center justify-between gap-3">
@@ -100,7 +100,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 </div>
 
                 {/* Terminal */}
-                <div className="mt-6 rounded-xl border border-purple-100 bg-white p-4 shadow-md shadow-purple-100/40">
+                <div className="mt-6 rounded-xl border border-purple-100 bg-white p-4 shadow-md shadow-purple-100/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-200/50">
                   <div className="flex gap-1.5 mb-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
