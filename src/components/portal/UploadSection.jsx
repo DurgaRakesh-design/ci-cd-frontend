@@ -137,9 +137,9 @@ export default function UploadSection({ id, onUploadTrigger }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.96 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed top-6 left-1/2 z-50 -translate-x-1/2 px-4"
+            className="fixed inset-x-0 top-6 z-50 flex justify-center px-4"
           >
-            <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 px-8 py-4 text-center text-sm font-semibold text-white shadow-xl animate-success-pop">
+            <div className="relative w-fit max-w-full overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 px-8 py-4 text-center text-sm font-semibold text-white shadow-xl animate-success-pop">
               <span className="relative z-10">🚀 Pipeline triggered successfully</span>
               {CONFETTI_PARTICLES.map((particle, index) => (
                 <span

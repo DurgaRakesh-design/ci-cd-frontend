@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 
 export default function HeroSection({ onUploadClick, onPipelinesClick }) {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-l from-indigo-100 via-purple-50 to-white bg-[radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.25),transparent_40%)]">
+    <section className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.22),transparent_42%)]" />
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
