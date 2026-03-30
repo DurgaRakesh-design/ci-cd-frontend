@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 
 export default function IllustrationSection() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20 bg-gradient-to-br from-indigo-100 via-purple-100 to-indigo-200 rounded-2xl">
+    <section className="max-w-6xl mx-auto px-6 bg-gradient-to-br from-indigo-100 via-purple-100 to-indigo-200 rounded-2xl shadow-inner shadow-purple-200/20">
+      
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +25,9 @@ export default function IllustrationSection() {
             </h2>
 
             <p className="text-gray-500 mt-4 leading-relaxed max-w-md">
-              Our CI/CD platform handles the entire lifecycle — from code upload to production deployment — with built-in security scans, automated testing, and real-time monitoring.
+              Our CI/CD platform handles the entire lifecycle — from code upload
+              to production deployment — with built-in security scans,
+              automated testing, and real-time monitoring.
             </p>
 
             {/* FEATURES */}
@@ -47,9 +50,10 @@ export default function IllustrationSection() {
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT CARD */}
           <div>
-            <div className="bg-white shadow-xl shadow-purple-200/40 rounded-2xl p-6 transition-all duration-300">
+            <div className="bg-white shadow-xl shadow-purple-200/40 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.01]">
+
               <div className="space-y-5">
                 {[
                   {
@@ -95,7 +99,7 @@ export default function IllustrationSection() {
                         </span>
                       </div>
 
-                      {/* PROGRESS */}
+                      {/* PROGRESS BAR */}
                       <div className="h-2 bg-gray-200/70 rounded-full overflow-hidden">
                         <motion.div
                           className={`h-full ${item.color} rounded-full`}
@@ -110,6 +114,7 @@ export default function IllustrationSection() {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
 
