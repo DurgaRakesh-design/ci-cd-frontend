@@ -19,9 +19,9 @@ const QuickStats = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
-            className="rounded-2xl bg-white border border-gray-100 
-             shadow-md 
-             hover:shadow-lg 
+            className="rounded-2xl bg-white border border-purple-100 
+             shadow-md shadow-purple-100/40
+             hover:shadow-purple-200/50 
              transition-all p-6 flex items-center gap-4"
           >
             <div className={`p-3 rounded-xl ${stat.color}`}>

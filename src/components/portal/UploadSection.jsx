@@ -15,6 +15,17 @@ const PLATFORMS = [
   { label: 'Python', color: 'bg-blue-100 text-blue-600 border-blue-200' },
 ];
 
+const CONFETTI_PARTICLES = [
+  { left: '10%', top: '18%', delay: '0s', background: '#34d399' },
+  { left: '22%', top: '10%', delay: '0.08s', background: '#a855f7' },
+  { left: '34%', top: '22%', delay: '0.14s', background: '#818cf8' },
+  { left: '48%', top: '8%', delay: '0.04s', background: '#22c55e' },
+  { left: '60%', top: '18%', delay: '0.18s', background: '#c084fc' },
+  { left: '72%', top: '12%', delay: '0.1s', background: '#4f46e5' },
+  { left: '84%', top: '20%', delay: '0.22s', background: '#10b981' },
+  { left: '90%', top: '9%', delay: '0.16s', background: '#8b5cf6' },
+];
+
 export default function UploadSection({ id, onUploadTrigger }) {
   const [file, setFile] = useState(null);
   const [environment, setEnvironment] = useState('');
@@ -122,14 +133,21 @@ export default function UploadSection({ id, onUploadTrigger }) {
       <AnimatePresence>
         {showSuccessBanner && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-4 z-[70] flex justify-center px-4"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -16, scale: 0.96 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed top-6 left-1/2 z-50 -translate-x-1/2 px-4"
           >
-            <div className="animate-slide-down rounded-xl bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg">
-              Pipeline triggered successfully 🚀
+            <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 px-8 py-4 text-center text-sm font-semibold text-white shadow-xl animate-success-pop">
+              <span className="relative z-10">🚀 Pipeline triggered successfully</span>
+              {CONFETTI_PARTICLES.map((particle, index) => (
+                <span
+                  key={index}
+                  className="confetti"
+                  style={particle}
+                />
+              ))}
             </div>
           </motion.div>
         )}
@@ -153,7 +171,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
         <div className="relative max-w-2xl mx-auto">
 
           {/* CARD */}
-          <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+          <div className="bg-white rounded-2xl border border-purple-100 p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50">
 
             {/* DROPZONE */}
             <div
@@ -230,7 +248,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
             {/* DROPDOWNS */}
             <div className="grid sm:grid-cols-2 gap-4 mt-6">
               <Select value={environment} onValueChange={setEnvironment}>
-                <SelectTrigger className="h-11 rounded-xl bg-white border border-gray-200 shadow-sm">
+                <SelectTrigger className="h-11 rounded-xl bg-white border border-purple-100 shadow-sm shadow-purple-100/40">
                   <SelectValue placeholder="Select Environment" />
                 </SelectTrigger>
                 <SelectContent>
@@ -242,7 +260,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
               </Select>
 
               <Select value={branch} onValueChange={setBranch}>
-                <SelectTrigger className="h-11 rounded-xl bg-white border border-gray-200 shadow-sm">
+                <SelectTrigger className="h-11 rounded-xl bg-white border border-purple-100 shadow-sm shadow-purple-100/40">
                   <SelectValue placeholder="Branch (optional)" />
                 </SelectTrigger>
                 <SelectContent>

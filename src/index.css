@@ -83,8 +83,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-font-family: 'Inter', sans-serif;
+    @apply text-foreground;
+    font-family: 'Inter', sans-serif;
   }
 }
 
@@ -110,4 +110,39 @@ font-family: 'Inter', sans-serif;
 
 .animate-slide-down {
   animation: slide-down 0.35s ease-out;
+}
+
+@keyframes success-pop {
+  0% {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-success-pop {
+  animation: success-pop 0.4s ease-out;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 999px;
+  animation: confetti 1.2s ease-out forwards;
 }

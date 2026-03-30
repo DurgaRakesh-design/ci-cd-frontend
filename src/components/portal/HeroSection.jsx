@@ -44,7 +44,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
               <Button
                 size="lg"
                 onClick={onUploadClick}
-                className="h-12 px-6 text-base font-semibold bg-primary text-white shadow-md hover:shadow-lg hover:bg-primary/90 transition-all"
+                className="h-12 px-6 text-base font-semibold bg-primary text-white shadow-md shadow-purple-100/40 hover:shadow-purple-200/50 hover:bg-primary/90 transition-all"
               >
                 <Upload className="w-4 h-4 mr-2" />
                 Upload Package
@@ -54,7 +54,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 size="lg"
                 variant="outline"
                 onClick={onPipelinesClick}
-                className="h-12 px-6 text-base font-semibold border-gray-200 bg-white hover:bg-white"
+                className="h-12 px-6 text-base font-semibold border-purple-100 bg-white shadow-md shadow-purple-100/40 hover:bg-white hover:shadow-purple-200/50"
               >
                 <GitBranch className="w-4 h-4 mr-2" />
                 View Pipelines
@@ -71,7 +71,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
           >
             <div className="relative">
               {/* Main card */}
-              <div className="relative rounded-2xl border border-gray-100 bg-white p-8 shadow-md">
+              <div className="relative rounded-2xl border border-purple-100 bg-white p-8 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50">
 
                 {/* Pipeline Icons */}
                 <div className="flex items-center justify-between gap-3">
@@ -99,7 +99,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 </div>
 
                 {/* Terminal */}
-                <div className="mt-6 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+                <div className="mt-6 rounded-xl border border-purple-100 bg-white p-4 shadow-md shadow-purple-100/40">
                   <div className="flex gap-1.5 mb-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />

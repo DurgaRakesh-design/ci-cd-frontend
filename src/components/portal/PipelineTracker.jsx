@@ -94,13 +94,13 @@ const PipelineTracker = ({ id }) => {
                     p-6 
                     rounded-2xl 
                     bg-white 
-                    border border-gray-100 
+                    border border-purple-100 
                     text-center 
                     flex flex-col items-center gap-3 
                     transition-all duration-300 ease-out 
                     hover:-translate-y-1.5 
-                    shadow-md
-                    hover:shadow-lg
+                    shadow-md shadow-purple-100/40
+                    hover:shadow-purple-200/50
                   "
                 >
 

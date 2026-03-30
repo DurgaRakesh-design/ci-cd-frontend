@@ -13,20 +13,17 @@ export default function CTASection({ onUploadClick }) {
         transition={{ duration: 0.5 }}
         className="relative text-center"
       >
-        <div className="relative bg-gradient-to-br from-foreground to-foreground/90 rounded-3xl p-12 md:p-16 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--primary)/0.15),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--primary)/0.1),transparent_50%)]" />
-
+        <div className="relative rounded-2xl border border-purple-100 bg-white p-12 shadow-md shadow-purple-100/40 transition-all duration-300 hover:shadow-purple-200/50 md:p-16">
           <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-bold text-background">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Start Your Deployment Now
             </h2>
-            <p className="text-background/60 mt-4 max-w-md mx-auto">
+            <p className="mt-4 max-w-md mx-auto text-gray-500">
               Upload your first package and experience seamless CI/CD automation in minutes.
             </p>
             <Button
               size="lg"
-              className="mt-8 h-12 px-8 text-base font-semibold bg-background text-foreground hover:bg-background/90 shadow-xl"
+              className="mt-8 h-12 px-8 text-base font-semibold bg-primary text-white shadow-md shadow-purple-100/40 hover:bg-primary/90 hover:shadow-purple-200/50"
               onClick={onUploadClick}
             >
               <Rocket className="w-4 h-4 mr-2" />
