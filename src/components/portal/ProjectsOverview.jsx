@@ -55,13 +55,13 @@ export default function ProjectsOverview({ id }) {
               transition={{ delay: i * 0.08 }}
               className="
                 bg-white 
-                border border-gray-200 
+                border border-gray-100 
                 rounded-2xl 
                 p-5 
-                shadow-sm 
+                shadow-md 
                 transition-all duration-300 
                 hover:-translate-y-1 
-                hover:shadow-[0_10px_30px_rgba(99,102,241,0.15)] 
+                hover:shadow-lg 
                 group 
                 cursor-pointer
               "

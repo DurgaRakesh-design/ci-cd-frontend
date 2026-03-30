@@ -13,11 +13,7 @@ export default function IllustrationSection() {
         className="relative"
       >
         {/* BACKGROUND */}
-        <div className="relative rounded-3xl p-10 md:p-16 overflow-hidden bg-gradient-to-r from-[#f3f4f6] via-[#eef2ff] to-[#f5f3ff]">
-
-          {/* Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full" />
+        <div className="relative rounded-2xl border border-gray-100 bg-white p-10 shadow-md md:p-16">
 
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
 
@@ -57,7 +53,7 @@ export default function IllustrationSection() {
 
             {/* RIGHT CARD */}
             <div className="relative">
-              <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-200">
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-md">
 
                 <div className="space-y-5">
                   {[

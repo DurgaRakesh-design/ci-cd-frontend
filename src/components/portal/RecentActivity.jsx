@@ -66,13 +66,13 @@ export default function RecentActivity() {
                     className="
                       w-full 
                       bg-white 
-                      border border-gray-200 
-                      rounded-xl 
+                      border border-gray-100 
+                      rounded-2xl 
                       p-4 
-                      shadow-sm 
+                      shadow-md 
                       transition-all duration-300 
                       hover:-translate-y-1 
-                      hover:shadow-[0_10px_25px_rgba(99,102,241,0.15)]
+                      hover:shadow-lg
                     "
                   >
                     {/* Top */}

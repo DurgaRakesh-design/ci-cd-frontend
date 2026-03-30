@@ -56,7 +56,7 @@ const statusConfig = {
 
 const PipelineTracker = ({ id }) => {
   return (
-    <section id={id} className="py-20 bg-gray-50">
+    <section id={id} className="py-20">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Heading */}
@@ -94,12 +94,13 @@ const PipelineTracker = ({ id }) => {
                     p-6 
                     rounded-2xl 
                     bg-white 
-                    border border-gray-200 
+                    border border-gray-100 
                     text-center 
                     flex flex-col items-center gap-3 
                     transition-all duration-300 ease-out 
                     hover:-translate-y-1.5 
-                    hover:shadow-[0_12px_30px_rgba(99,102,241,0.15)]
+                    shadow-md
+                    hover:shadow-lg
                   "
                 >
 

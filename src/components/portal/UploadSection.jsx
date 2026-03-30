@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -21,7 +21,18 @@ export default function UploadSection({ id, onUploadTrigger }) {
   const [branch, setBranch] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    if (!showSuccessBanner) return undefined;
+
+    const timeoutId = window.setTimeout(() => {
+      setShowSuccessBanner(false);
+    }, 4000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showSuccessBanner]);
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -83,7 +94,8 @@ export default function UploadSection({ id, onUploadTrigger }) {
         throw new Error(data.error || "Upload failed");
       }
 
-      toast.success("🚀 Pipeline triggered successfully!");
+      toast.success("Pipeline triggered successfully!");
+      setShowSuccessBanner(true);
 
       onUploadTrigger?.({
         fileName: file.name,
@@ -106,7 +118,23 @@ export default function UploadSection({ id, onUploadTrigger }) {
   };
 
   return (
-    <section id={id} className="max-w-6xl mx-auto px-6 py-16 bg-gray-50">
+    <section id={id} className="max-w-6xl mx-auto px-6 py-16">
+      <AnimatePresence>
+        {showSuccessBanner && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 top-4 z-[70] flex justify-center px-4"
+          >
+            <div className="animate-slide-down rounded-xl bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg">
+              Pipeline triggered successfully 🚀
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +153,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
         <div className="relative max-w-2xl mx-auto">
 
           {/* CARD */}
-          <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
+          <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
 
             {/* DROPZONE */}
             <div
@@ -138,7 +166,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
                   ? 'border-indigo-400 bg-indigo-50'
                   : file
                     ? 'border-emerald-300 bg-emerald-50'
-                    : 'border-gray-300 hover:border-indigo-300 hover:bg-gray-50'
+                    : 'border-gray-300 hover:border-indigo-300 hover:bg-slate-50'
               }`}
             >
               <input

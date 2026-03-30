@@ -6,10 +6,6 @@ import { motion } from "framer-motion";
 export default function HeroSection({ onUploadClick, onPipelinesClick }) {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      {/* Background gradient glow */}
-      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] -translate-y-1/2" />
-      <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] translate-y-1/2" />
-
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -58,7 +54,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 size="lg"
                 variant="outline"
                 onClick={onPipelinesClick}
-                className="h-12 px-6 text-base font-semibold border-gray-200 hover:bg-gray-50"
+                className="h-12 px-6 text-base font-semibold border-gray-200 bg-white hover:bg-white"
               >
                 <GitBranch className="w-4 h-4 mr-2" />
                 View Pipelines
@@ -74,11 +70,8 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
             className="hidden lg:block"
           >
             <div className="relative">
-              {/* Glow behind card */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-3xl blur-2xl" />
-
               {/* Main card */}
-              <div className="relative bg-white/80 backdrop-blur-xl border border-gray-200 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+              <div className="relative rounded-2xl border border-gray-100 bg-white p-8 shadow-md">
 
                 {/* Pipeline Icons */}
                 <div className="flex items-center justify-between gap-3">
@@ -106,7 +99,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 </div>
 
                 {/* Terminal */}
-                <div className="mt-6 bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <div className="mt-6 rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
                   <div className="flex gap-1.5 mb-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
