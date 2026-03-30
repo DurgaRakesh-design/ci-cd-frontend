@@ -30,25 +30,79 @@ export default function UploadSection({ id, onUploadTrigger }) {
     if (droppedFile) setFile(droppedFile);
   };
 
+  // 🚀 REAL BACKEND INTEGRATION
   const handleUpload = async () => {
     if (!file) return toast.error('Please select a file first');
     if (!environment) return toast.error('Please select an environment');
 
-    setIsUploading(true);
-    await new Promise(r => setTimeout(r, 1500));
-    setIsUploading(false);
+    try {
+      setIsUploading(true);
 
-    toast.success('Pipeline triggered successfully!');
-    onUploadTrigger?.({
-      fileName: file.name,
-      environment,
-      branch: branch || 'main',
-      platform: 'Java',
-    });
+      // Detect extension
+      const getExtension = (name) => {
+        if (name.endsWith(".tar.gz")) return ".tar.gz";
+        return "." + name.split(".").pop().toLowerCase();
+      };
 
-    setFile(null);
-    setEnvironment('');
-    setBranch('');
+      // Detect version
+      const detectVersion = (name) => {
+        const match = name.match(/(\d+\.\d+[\.\d]*)/);
+        return match ? "v" + match[1] : "v1.0";
+      };
+
+      const extension = getExtension(file.name);
+      const detectedVersion = detectVersion(file.name);
+
+      // Convert file to base64
+      const base64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(",")[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      // 🔥 CALL NETLIFY FUNCTION
+      const res = await fetch("/.netlify/functions/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          fileName: file.name,
+          fileContent: base64,
+          environment,
+          branch: branch || "main",
+          version: detectedVersion,
+          extension
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Upload failed");
+      }
+
+      toast.success("🚀 Pipeline triggered successfully!");
+
+      onUploadTrigger?.({
+        fileName: file.name,
+        environment,
+        branch: branch || "main",
+        platform: extension,
+      });
+
+      // Reset
+      setFile(null);
+      setEnvironment('');
+      setBranch('');
+
+    } catch (err) {
+      console.error(err);
+      toast.error(err.message || "Upload failed");
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -139,10 +193,7 @@ export default function UploadSection({ id, onUploadTrigger }) {
             {/* TAGS */}
             <div className="flex flex-wrap gap-2 mt-5">
               {PLATFORMS.map((p) => (
-                <Badge
-                  key={p.label}
-                  className={`${p.color} text-xs px-3 py-1 border`}
-                >
+                <Badge key={p.label} className={`${p.color} text-xs px-3 py-1 border`}>
                   {p.label}
                 </Badge>
               ))}
@@ -150,14 +201,11 @@ export default function UploadSection({ id, onUploadTrigger }) {
 
             {/* DROPDOWNS */}
             <div className="grid sm:grid-cols-2 gap-4 mt-6">
-              
-              {/* ENV */}
               <Select value={environment} onValueChange={setEnvironment}>
                 <SelectTrigger className="h-11 rounded-xl bg-white border border-gray-200 shadow-sm">
                   <SelectValue placeholder="Select Environment" />
                 </SelectTrigger>
-
-                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg">
+                <SelectContent>
                   <SelectItem value="dev">Development</SelectItem>
                   <SelectItem value="staging">Staging</SelectItem>
                   <SelectItem value="uat">UAT</SelectItem>
@@ -165,25 +213,22 @@ export default function UploadSection({ id, onUploadTrigger }) {
                 </SelectContent>
               </Select>
 
-              {/* BRANCH */}
               <Select value={branch} onValueChange={setBranch}>
                 <SelectTrigger className="h-11 rounded-xl bg-white border border-gray-200 shadow-sm">
                   <SelectValue placeholder="Branch (optional)" />
                 </SelectTrigger>
-
-                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg">
+                <SelectContent>
                   <SelectItem value="main">main</SelectItem>
                   <SelectItem value="develop">develop</SelectItem>
                   <SelectItem value="release">release</SelectItem>
                   <SelectItem value="hotfix">hotfix</SelectItem>
                 </SelectContent>
               </Select>
-
             </div>
 
             {/* BUTTON */}
             <Button
-              className="w-full h-12 mt-6 text-base font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg"
+              className="w-full h-12 mt-6 text-base font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-700"
               onClick={handleUpload}
               disabled={isUploading}
             >
