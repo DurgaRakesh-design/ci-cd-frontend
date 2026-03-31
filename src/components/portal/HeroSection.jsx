@@ -103,7 +103,7 @@ export default function HeroSection({ onUploadClick, onPipelinesClick }) {
                 </div>
 
                 {/* Terminal (FIXED GREY CARD) */}
-                <div className="mt-6 rounded-xl border border-gray-200 bg-gray-100 p-4 shadow-inner">
+                <div className="mt-6 rounded-xl border border-gray-200 bg-[#f3f4f6] p-4">
                   <div className="flex gap-1.5 mb-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
